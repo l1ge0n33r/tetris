@@ -1,13 +1,20 @@
+//-----------------------------//  
+//
+//	Written together with Vadym Tolkachev
+//
+//-----------------------------//
+
+
 #include <SFML/Graphics.hpp>
 #include <time.h>
 #include <stdio.h>
 
 using namespace sf;
 
-const int M = 20; // высота игрового поля
-const int N = 10; // ширина игрового поля
+const int M = 20; // height of field
+const int N = 10; // width of field
 
-int field[M][N] = { 0 }; // игровое поле
+int field[M][N] = { 0 }; // game filed
 
 RenderWindow window(VideoMode(320, 480), "The Game!");
 int dx = 0;
@@ -18,7 +25,7 @@ const float DELAY = 1;
 
 float timer = 0, delay = DELAY;
 
-// Массив фигурок-тетрамино
+// array of tetramino
 int figures[7][4] =
 {
 	1,3,5,7, // I
@@ -153,15 +160,8 @@ void HandleTetraminoLanding()
 			{
 				for (int j = 0; j < N; ++j)
 				{
-					//if (k+1 != M )
-					//{
 					if(k!=M)
 						field[k][j] = field[k-1][j];
-					/*}
-					else
-					{
-						field[k][j] = 0;
-					}*/
 				}
 			}
 			i = M;
